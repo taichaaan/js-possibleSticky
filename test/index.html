@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>possibleSticky</title>
+	<style>
+		.container{
+			width: 50%;
+			height: 300vh;
+			margin: 10vh auto;
+		}
+
+		.c-sticky{
+			width: 100%;
+			height: 90vh;
+			position: sticky;
+			top: 10vh;
+			background-color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="c-sticky"></div>
+	</div>
+
+<script src="../dev/possibleSticky.js"></script>
+<script>
+	new possibleSticky('.c-sticky',{
+	});
+</script>
+</body>
+</html>
