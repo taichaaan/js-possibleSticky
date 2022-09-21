@@ -1,12 +1,12 @@
-/*! possibleSticky.js | v1.0.0 | license Copyright (C) 2022 Taichi Matsutaka */
+/*! possibleSticky.js | v1.0.1 | license Copyright (C) 2022 Taichi Matsutaka */
 /*
  *
  * @name    : possibleSticky.js
  * @content : possibleSticky
  * @url     : https://github.com/taichaaan/js-possibleSticky
  * @creation: 2022.02.25
- * @update  : 2020.00.00
- * @version : 1.0.0
+ * @update  : 2020.09.21
+ * @version : 1.0.1
  *
  */
 (function(global) {[]
@@ -50,15 +50,15 @@
 			///////////////////////////////////////////////////////////////
 			// window size
 			///////////////////////////////////////////////////////////////
-			let window_height = document.documentElement.clientHeight;
+			let windowHeight = document.documentElement.clientHeight;
 
 			const getWindowSize = function(){
-				window_height = document.documentElement.clientHeight;
+				windowHeight = document.documentElement.clientHeight;
 			}
 
 			for ( let i = 0; i < options['getWindowSizeEvent'].length; i++ ) {
 				window.addEventListener( options['getWindowSizeEvent'][i] ,getWindowSize);
-				
+
 				/* ---------- removes ---------- */
 				_this.removes.push( function(){
 					window.removeEventListener( options['getWindowSizeEvent'][i] ,getWindowSize);
@@ -67,7 +67,7 @@
 
 
 
-			
+
 			///////////////////////////////////////////////////////////////
 			// isSticky
 			///////////////////////////////////////////////////////////////
@@ -76,9 +76,9 @@
 				const targetStyle  = getComputedStyle( target );
 				const targetTop    = parseInt( targetStyle.getPropertyValue('top') );
 
-				let height = new Number( targetHeight ) + new Number( targetTop ) + options['grace'];
+				const height = new Number( targetHeight ) + new Number( targetTop ) + options['grace'];
 
-				if( height < window_height ){
+				if( height <= windowHeight ){
 					target.classList.add('is-sticky');
 				} else{
 					target.classList.remove('is-sticky');
